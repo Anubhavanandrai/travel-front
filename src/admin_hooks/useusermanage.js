@@ -1,4 +1,5 @@
 import axios from "axios";
+import { working_url } from "../Base.js";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +8,7 @@ const Manager = () => {
   const deleteuser = async (de) => {
     const user_to_delete = de._id;
     try {
-      const resp = await axios.delete(`http://localhost:8000/user/deleteuser/${user_to_delete}`);
+      const resp = await axios.delete(`${working_url}/user/deleteuser/${user_to_delete}`);
       if (resp) {
         toast.success(resp.data.message); // Ensure msg field is used
       }
@@ -20,7 +21,7 @@ const Manager = () => {
   const setadmin = async (de) => {
     const ide = de._id;
     try {
-      const resp = await axios.patch(`http://localhost:8000/user/make_admin/${ide}`);
+      const resp = await axios.patch(`${working_url}/user/make_admin/${ide}`);
       if (resp) {
         console.log("FRONTEND::::: after setting admin", resp);
         console.log("FRONTEND::::: after setting admin", resp.data.message);
@@ -37,7 +38,7 @@ const Manager = () => {
 const Approveclass=async(product)=>{
  try{
   const ide=product._id
-  const resp = await axios.patch(`http://localhost:8000/class/approveclass/${ide}`)
+  const resp = await axios.patch(`${working_url}/class/approveclass/${ide}`)
   if(resp){
     console.log("FRONTEND::::: after accepting class", resp);
     toast.success(resp.data.message)
@@ -52,7 +53,7 @@ catch(err){
 const Rejectclass=async(product)=>{ 
 try{
   const ide=product._id
-  const rej = await axios.patch(`http://localhost:8000/class/rejectclass/${ide}`)
+  const rej = await axios.patch(`${working_url}/class/rejectclass/${ide}`)
 
   if(rej){
     console.log("FRONTEND::::: after rejecting class", rej);

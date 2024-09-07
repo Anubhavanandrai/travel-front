@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { working_url } from "../Base.js";
 
 const HandleLogin = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const loginsubmit = async (e,admin) => {
            if(admin){
            
             try {
-              const response = await axios.post("http://localhost:8000/user/Admin/login", Login);
+              const response = await axios.post(`${working_url}/user/Admin/login`, Login);
               console.log(response, "response");
               if (response) {
                 localStorage.setItem("JWTtoken", response?.data?.JWTtoken);
@@ -36,7 +36,7 @@ const loginsubmit = async (e,admin) => {
 
            if(!admin){
               try {
-                  const response = await axios.post("http://localhost:8000/user/login", Login);
+                  const response = await axios.post(`${working_url}/user/login`, Login);
                   console.log(response, "response");
                   if (response) {
                         localStorage.setItem("JWTtoken", response?.data?.JWTtoken);

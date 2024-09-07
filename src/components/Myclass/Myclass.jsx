@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './myclass.css';
+import { working_url } from "../../Base.js";
 import axios from 'axios';
 import { headers } from '../../config.js/configuration.js';
 
@@ -14,9 +15,9 @@ function Mine() {
     try {
       let url = '';
       if (currentStatus === 'Accepted') {
-        url = 'http://localhost:8000/class/user-approved-class';
+        url = `${working_url}/class/user-approved-class`;
       } else if (currentStatus === 'Rejected') {
-        url = 'http://localhost:8000/class/user-rejected-class';
+        url = `${working_url}/class/user-rejected-class`;
       } else {
         return;
       }

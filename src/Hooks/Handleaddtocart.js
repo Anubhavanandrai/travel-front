@@ -2,6 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { headers } from "../config.js/configuration";
 import { useState } from "react";
+import { working_url } from "../Base.js";
 
 export const Carthandle = () => {
   const [trip, setTrip] = useState({});
@@ -17,7 +18,7 @@ export const Carthandle = () => {
     };
     try {
       const added = await axios.post(
-        "http://localhost:8000/cart/add-to-cart",
+        `${working_url}/cart/add-to-cart`,
         Pro,
         {
           headers: headers(),
@@ -49,7 +50,7 @@ export const Carthandle = () => {
     console.log("trp.journey k andr y h",trip.journey)
     try {
       console.log("inside call required ka try")
-      const resp = await axios.get( `http://localhost:8000/class/searched-trip/${trip.journey}`
+      const resp = await axios.get( `${working_url}/class/searched-trip/${trip.journey}`
       );
 
       console.log("aftrr apii in search backend")

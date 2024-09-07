@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./cart.css";
+import { working_url } from "../../Base.js";
 
 function Cart() {
   const [cart, setCart] = useState([]);
@@ -10,7 +11,7 @@ function Cart() {
 
   const callCart = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/cart/cartdetail/${ActiveUser}`);
+      const response = await axios.get(`${working_url}/cart/cartdetail/${ActiveUser}`);
       setCart(response.data.cart);
     } catch (err) {
       console.log("Frontend: error in calling cart items API", err);
@@ -19,7 +20,7 @@ function Cart() {
 
   const updateQuantity = async (itemId, quantity) => {
     try {
-     const upd= await axios.put(`http://localhost:8000/cart/update-quantity/${itemId}`, {quantity});
+     const upd= await axios.put(`${working_url}/cart/update-quantity/${itemId}`, {quantity});
      console.log("Frontend:: in update ",upd) 
      callCart(); // Refresh the cart
     } catch (err) {
@@ -29,7 +30,7 @@ function Cart() {
 
   const deleteItem = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:8000/cart//delete-cart-item/${itemId}`);
+      await axios.delete(`${working_url}/cart//delete-cart-item/${itemId}`);
       callCart(); // Refresh the cart
     } catch (err) {
       console.log("Frontend: error in deleting cart item", err);

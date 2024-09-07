@@ -1,5 +1,6 @@
 import { MdDashboard } from "react-icons/md";
 import './admin.css';
+import { working_url } from "../Base.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Manager from "../admin_hooks/useusermanage";
@@ -16,7 +17,7 @@ const App = () => {
         switch(num) {
             case 1:
                 try {
-                    let getted = await axios.get("http://localhost:8000/class/admin/allclass");
+                    let getted = await axios.get(`${working_url}/class/admin/allclass`);
                     setDetails(getted.data);
                 } catch (error) {
                     console.log("Frontend :: in admin.jsx get all journey: ", error);
@@ -24,7 +25,7 @@ const App = () => {
                 break;
             case 2:
                 try {
-                    let getted = await axios.get("http://localhost:8000/user/get-all-users");
+                    let getted = await axios.get(`${working_url}/user/get-all-users`);
                     setDetails(getted.data);
                 } catch (error) {
                     console.log("Frontend :: in admin.jsx get all users: ", error);

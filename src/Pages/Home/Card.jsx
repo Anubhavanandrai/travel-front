@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Carthandle } from "../../Hooks/Handleaddtocart.js";
 import { IoSearchSharp } from "react-icons/io5";
+import { working_url } from "../../Base.js";
 
 function Card() {
   const [division, setDivision] = useState([]);
@@ -11,7 +12,7 @@ function Card() {
   console.log(requ)
   const getUser = async () => {
     try {
-      const resp = await axios.get("http://localhost:8000/class/allclass");
+      const resp = await axios.get(`${working_url}/class/allclass`);
       setDivision(resp.data); // Set the fetched data to the state
     } catch (error) {
       console.log(error);

@@ -1,6 +1,6 @@
 import {  useEffect,useState } from "react";
 import axios from "axios";
-
+import { working_url } from "../Base.js";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -42,7 +42,7 @@ function Forgethandle() {
 
   const checkEmailExists = async (mail) => {
     try {
-      const response = await axios.get(`http://localhost:8000/user/checkemail/ispresent/${mail}`);
+      const response = await axios.get(`${working_url}/user/checkemail/ispresent/${mail}`);
       if(response.status === 204){
         setFoundmail(false);
         return null;
@@ -72,7 +72,7 @@ function Forgethandle() {
       pass:write
     }
     try{
-       const all= await axios.patch(`http://localhost:8000/user/paschnge/${mail}`,newdata)
+       const all= await axios.patch(`${working_url}/user/paschnge/${mail}`,newdata)
          if(all){
           toast.success(all.data.message)
           navigate("/")

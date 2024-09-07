@@ -2,7 +2,7 @@ import axios from "axios"
 import { toast } from 'react-toastify';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import { working_url } from "../Base.js";
 const Usesubmitt=()=> {
 
 
@@ -96,7 +96,7 @@ const validateField = (name, value) => {
   // for handling the submission of the form
      const handleSubmit= async(e)=>{      
         e.preventDefault()
-        const res= await axios.post('http://localhost:8000/user/addnewuser',form)
+        const res= await axios.post(`${working_url}/user/addnewuser`,form)
         if(res) {
           toast.success("user added successfully")
           navigate("/")
@@ -106,4 +106,4 @@ const validateField = (name, value) => {
 }
 return{handleChange,handleSubmit, form,formErrors}
 }
-export default Usesubmitt
+export default Usesubmitt;

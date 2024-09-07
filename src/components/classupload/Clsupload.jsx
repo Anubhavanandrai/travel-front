@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './classform.css'; // Updated import to match the new CSS filename
 import axios from "axios"
+import { working_url } from "../../Base.js";
 import { useNavigate } from 'react-router-dom';
 import { fileheader } from '../../config.js/configuration';
 
@@ -29,7 +30,7 @@ const ClassForm = () => {
     try{
       console.log(formData,"i am callled after handle submitt")
       console.log(fileheader,"i am fileheader callled after handle submitt")
-      const afterimg = await axios.post("http://localhost:8000/class/newclass", formData, { headers: fileheader });
+      const afterimg = await axios.post(`${working_url}/class/newclass", formData, { headers: fileheader }`);
                 
       if (afterimg) {
         alert("Class Added Successfully");
