@@ -1,0 +1,162 @@
+/* Styles for the journey container */
+.Journey-wala {
+  margin: 10px;
+}
+
+/* Styles for the journey label */
+.journey-label {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 4px;
+  display: block;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+/* Styles for the search container */
+.search-container {
+  position: relative;
+  width: 50%;
+  margin-left: 30px;
+}
+
+/* Styles for the search icon */
+.search-glass {
+  position: absolute;
+  top: 46%;
+  right: 6px;
+  transform: translateY(-50%);
+  color: rgba(0, 0, 0, 0.498);
+  z-index: 2;
+}
+
+/* Styles for the search input */
+.Search-journey {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  width: 100%;
+  font-size: 13px;
+  transform: scale(1.05);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding-right: 40px; /* Ensure space for the icon */
+  z-index: 1;
+}
+
+/* Styles for the search input focus state */
+.Search-journey:focus {
+  border-color: #007BFF;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Styles for the container of searched cards */
+.outcard-searched {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Styles for individual searched cards */
+.card-searched {
+  width: 250px;
+  height: 400px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 10px 1px rgba(246, 76, 76, 0.297);
+  border-radius: 3px;
+}
+
+/* Styles for the container of regular cards */
+.Outcard {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2px;
+}
+
+/* Styles for individual regular cards */
+.card {
+  width: 250px;
+  height: 400px;
+  flex: 1 1 20%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 10px 1px rgba(246, 76, 76, 0.297);
+  border-radius: 3px;
+}
+
+/* Hover effect for cards */
+.card:hover,
+.card-searched:hover {
+  transform: scale(1.05);
+}
+
+/* Styles for the card image container */
+.cardimg {
+  height: 30%;
+  width: 226px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+/* Styles for the card image */
+.cardimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Common styles for card text elements */
+.cardtitle,
+.Description,
+.seat,
+.Price {
+  width: 226px;
+  font-size: medium;
+  margin-left: 10px;
+  max-width: 226px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Outcardd{
+  width:100vw;
+  padding :20px;
+  display: flex;
+ 
+  flex-wrap: wrap;
+}
+.cardd{
+  width:35%;
+  flex: 1 1 30%;
+  margin-left: 3%;
+}
+.carddbtn{
+  margin-left:13%;
+}
+/* Styles for the card title */
+.cardtitle {
+  height: 35px;
+  font-size: small;
+  overflow: hidden;
+}
+
+/* Styles for the card description */
+.Description {
+  overflow: hidden;
+  height: 100px;
+}
+
+/* Styles for the card button */
+.card button,
+.card-searched button {
+  width: fit-content;
+  margin-left: 34%;
+  margin-top: 6px;
+}

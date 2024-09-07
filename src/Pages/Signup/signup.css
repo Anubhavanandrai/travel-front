@@ -1,0 +1,82 @@
+.signup-container{
+    margin:0px;
+    padding: 0px;
+    width:100vw;
+    height: 100vh;
+  
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    font-family: sans-serif !important;
+    background-image: url(../../Assets/mainsignup.jpg);
+}
+
+.signup-header{
+    font-size: 20px;
+    font-family: sans-serif;
+    color:aliceblue;
+    padding:20px;
+}
+
+.signup-form{
+    padding:25px;
+    height:fit-content;
+    display: inline-block;
+}
+
+.form-elements{
+   
+    width:100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.form-elements input{
+    width:100%;
+    border:2px solid rgb(222, 220, 220);
+    border-radius: 5px;
+    font-size: 14px;
+    padding:10px
+}
+.form-elements input:hover{
+    outline: 0;
+    border-color: #110c0c;  
+}
+
+.form-elements.success input{
+      border-color: #2ece71;
+}
+.form-elements.error input{
+    border-color: #e63131;
+}
+.form-elements i{
+     position: absolute;
+     left:90%;
+     top:43px;
+     visibility: hidden;
+     
+}
+.form-elements small{
+    margin-top: 15px;   
+    color:rgb(246, 242, 242)
+}
+
+.form-elements label{
+   margin-bottom : 10px;
+   color:rgb(246, 242, 242)
+}
+
+.signup-form button{
+    margin-left:37%;
+ }
+
+ .form-elements.success  i.tick {
+    color:#2ece71;
+    visibility: visible;
+}
+
+.form-elements.error  i.exclamation {
+    color:#e63131;
+    visibility: visible;
+}

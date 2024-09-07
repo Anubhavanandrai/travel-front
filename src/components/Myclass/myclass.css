@@ -1,0 +1,67 @@
+.myclass-container {
+  padding: 20px;
+}
+
+.myclass-buttons {
+  margin-bottom: 20px;
+}
+
+.myclass-accepted,
+.myclass-rejected {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #4caf50; /* Green */
+  color: white;
+  cursor: pointer;
+}
+
+.myclass-accepted {
+  background-color: #4caf50; /* Green */
+}
+
+.myclass-rejected {
+  background-color: #f44336; /* Red */
+}
+
+.myclass-status-info {
+  margin-top: 20px;
+}
+
+.accepted-item,
+.rejected-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.accepted-item-img,
+.rejected-item-img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.accepted-item-details,
+.rejected-item-details {
+  flex: 1;
+}
+
+.accepted-item-title,
+.rejected-item-title {
+  font-size: 1.2em;
+  margin: 0 0 10px 0;
+}
+
+.accepted-item-description,
+.rejected-item-description {
+  margin: 0 0 10px 0;
+}
+
+.accepted-item-fee,
+.rejected-item-fee {
+  font-weight: bold;
+}

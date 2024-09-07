@@ -1,0 +1,188 @@
+.login-container {
+  text-align: center;
+  height: 100vh;
+  background-image: url(../../Assets/login2.jpg);
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-btnn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  padding: 0 20px;
+}
+
+.log-home, .log-sign {
+  background-color: #4CAF50;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.log-home:hover, .log-sign:hover {
+  background-color: #4CAF50;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.tab.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.login {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.forgot-password-btn {
+  background: none;
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.new-password-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.716);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.forget-main {
+  background: rgba(77, 75, 75, 0.706);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 5px;
+  animation: slideDown 0.5s ease-in-out;
+}
+.inside-forget-main{
+  display: block;
+  width:fit-content;
+}
+
+.forget-main-label {
+  color: #f7f2f2;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.forget-password-input, .new-password-input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.801);
+}
+
+.reset-password-btn, .forget-password-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-password-btn:hover, .forget-password-btn:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(5);
+  }
+}

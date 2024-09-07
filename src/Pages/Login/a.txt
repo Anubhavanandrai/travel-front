@@ -1,0 +1,78 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+function Forgethandle() {
+  const [mail, setMail] = useState("");
+  const [foundmail, setFoundmail] = useState(null);
+  const [newpassword, setNewpassword] = useState(false);
+  const [write, setWrite] = useState("");
+  const [cnfrm, setCnfrm] = useState("");
+  const [upd,setUpd]=useState(false)
+  
+
+
+  const handleEmailChange = (e) => {
+    setMail(e.target.value);   
+  
+  };
+  const handlewrite=(e)=>{
+    setWrite(e.target.value)
+  }
+
+  const handlecnfrmwrite=(e)=>{
+    setCnfrm(e.target.value)
+   
+  }
+
+  useEffect(()=>{
+    if(write==cnfrm){
+      setUpd(true)
+   }
+  },[write,cnfrm])
+
+
+  const checkEmailExists = async (mail) => {
+    try {
+      const response = await axios.get(`http://localhost:8000/user/checkemail/ispresent/${mail}`);
+      if(response.status === 204){
+        setFoundmail(false);
+        return null;
+      }
+      setFoundmail(true);
+      return response.data.Email; 
+    } 
+    catch (error) {
+      console.error("Error checking email:", error);
+      setFoundmail("An error occurred while checking the email.");
+      return false;
+    }
+  };
+
+  const sendReset = async () => {
+    let upd=await checkEmailExists(mail);
+      if(upd){setNewpassword(true)}
+      else{setNewpassword(false)}
+
+  };
+
+
+
+  return { handleEmailChange, sendReset, foundmail,newpassword,handlecnfrmwrite,handlewrite,upd,write,cnfrm,mail };
+}
+
+export default Forgethandle;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

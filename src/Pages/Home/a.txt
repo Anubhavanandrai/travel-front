@@ -1,0 +1,178 @@
+import "./card.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Carthandle } from "../../Hooks/Handleaddtocart.js";
+import { IoSearchSharp } from "react-icons/io5";
+
+function Card() {
+  const [division, setDivision] = useState([]);
+  const { addToCart, Searchchange, callRequired, requ ,trip} = Carthandle();
+  console.log(trip)
+  const getUser = async () => {
+    try {
+      const resp = await axios.get("http://localhost:8000/class/allclass");
+      setDivision(resp.data); // Set the fetched data to the state
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  return (
+    <div className="Journey-wala">
+
+      <label className="journey-label">Search Your Trip</label>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search trip"
+          className="Search-journey"
+          name="journey"
+          onChange={Searchchange}
+        />
+        <i className="search-glass" onClick={callRequired}><IoSearchSharp size={20} /></i>
+      </div>
+
+      {/* Conditional rendering based on `requ` length */}
+      {requ.length > 0 ? (
+        <div className="Outcard">
+          {requ.map((item) => (
+            <div key={item._id} className="card">
+              <div className="cardimg">
+                <img src={item.file} alt={item.tripname} />
+              </div>
+              <div className="cardtitle">{item.tripname}</div>
+              <div className="Description">{item.description}</div>
+              <div className="seat">Seat: {item.availableseat}</div>
+              <div className="seat">Email: {item.email}</div>
+              <div className="Price">Fee: ${item.fee}</div>
+              <button onClick={() => addToCart(item)}>Add to Cart</button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="Outcard">
+          {division.map((product) => (
+            <div key={product._id} className="card">
+              <div className="cardimg">
+                <img src={product.file} alt={product.tripname} />
+              </div>
+              <div className="cardtitle">{product.tripname}</div>
+              <div className="Description">{product.description}</div>
+              <div className="seat">Seat: {product.availableseat}</div>
+              <div className="seat">Email: {product.email}</div>
+              <div className="Price">Fee: ${product.fee}</div>
+              <button onClick={() => addToCart(product)}>Add to Cart</button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Card;
+
+
+
+
+
+
+
+
+
+
+import axios from "axios";
+import { toast } from "react-toastify";
+import { headers } from "../config.js/configuration";
+import { useState } from "react";
+
+export const Carthandle = () => {
+  const [trip, setTrip] = useState({});
+  const [requ, setRequ] = useState([]);  // Initialize req state properly
+
+  const addToCart = async (item) => {
+    const Pro = {
+      Title: item.tripname,
+      Description: item.description,
+      Fee: item.fee,
+      Imageurl: item.file,
+      Quantity: 1
+    };
+    try {
+      const added = await axios.post(
+        "http://localhost:8000/cart/add-to-cart",
+        Pro,
+        {
+          headers: headers,
+        }
+      );
+      if (added) {
+        toast.success("Item added to cart");
+      }
+    } catch (err) {
+      if (err.response && err.response.status === 401) {
+        toast.error(err.response.data.error);
+      } else {
+        console.log("Frontend error of adding to cart: ", err);
+      }
+    }
+  };
+
+
+
+  // Search specific trip 
+  const Searchchange = (e) => {
+    setTrip({ ...trip, [e.target.name]: e.target.value });
+  };
+
+
+  const callRequired = async () => {
+    console.log("inside call required")
+    console.log(trip)
+    console.log("trp.journey k andr y h",trip.journey)
+    try {
+      console.log("inside call required ka try")
+      const resp = await axios.post( `http://localhost:8000/class/searched-trip/${trip.journey}`
+      );
+      if (resp && resp.data) {
+        setRequ(resp.data.searchedTrip);
+        console.log("Response from server:", resp.data.searchedTrip);
+      }
+    } catch (err) {
+      console.log("Frontend error while calling required:", err);
+    }
+  };
+
+  return { addToCart, Searchchange, callRequired ,requ,trip};
+};
+
+
+
+
+
+
+
+
+
+
+// api for searching the required journey details 
+router.get("/searched-trip/:place",async(req,res)=>{
+const Place=req.params.place;
+console.log("place mila ya nhi :",Place)
+try{
+    const searchedTrip=await Class.find({$text:{$search:Place}},
+        {score:{$meta:"textScore"}}).
+        sort({ score: { $meta: "textScore" } });
+
+       if(searchedTrip){
+        res.status(200).json({msg:"required journey fetched",searchedTrip})
+       }
+}
+catch(error){
+    console.error("error in searching trip",error)
+}})
+

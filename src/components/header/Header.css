@@ -1,0 +1,167 @@
+/* Ensure the header container takes full width */
+.nav_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f8f8;
+}
+
+/* Style the navigation bar */
+.navv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px ;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* Style the links */
+.links ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links ul li {
+  margin: 0 15px;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  justify-content: center;
+}
+.authh-label{
+  color: black;
+
+  margin-top: 5px;
+  padding: 6px;
+}
+
+.auth-profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+ 
+  padding: 4px;
+  margin:10px;
+  margin-top: 12px;
+}
+
+.auth-profile .drop {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.auth-profile:hover .drop {
+  display: block;
+}
+
+.auth-profile .drop a {
+  display: block;
+  padding: 5px 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.auth-profile .drop a:hover {
+  background-color: #f8f8f8;
+}
+
+.auth button.nav-btnn {
+  margin-left: 10px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.auth button.nav-btnn:hover {
+  background-color: #555;
+}
+
+.auth .cart {
+  margin-left: 5px;
+}
+.cart{
+  margin-top: 7px;
+  margin-right: 10px;
+}
+
+.carousel-header {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 10px ;
+  
+  height: 75vh;
+}
+
+.carouselitems {
+  display: flex;
+  justify-content: center;
+  height:100%;
+  width:100%
+  
+}
+
+.carousel_image {
+  width: 97%;
+  border-radius: 5px;
+  height:100%
+}
+
+.bt {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1245px;
+  position: relative;
+  top: -270px;
+  box-sizing: border-box;
+ 
+  left:60px
+}
+
+.leftt, .rightt {
+  background-color: rgba(0, 0, 0, 0.261);
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 0px !important;
+}
+
+.leftt:hover, .rightt:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.link-login {
+  text-decoration: none;
+  margin:20px;
+}
+.link-signup{
+  text-decoration: none;
+  margin-right:10px;
+}
