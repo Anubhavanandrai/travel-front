@@ -4,10 +4,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    rollupOptions: {
-      external: ['axios','react-router-dom'], // Prevent Rollup from bundling axios
-    },
-  },
+  
 });
 
